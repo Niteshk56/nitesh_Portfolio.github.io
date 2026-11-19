@@ -1,0 +1,588 @@
+<title>Nitesh Kumar Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Nitesh Kumar, motion graphics designer. SaaS motion graphics, UI walkthroughs, Lottie and video editing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
+<style>
+/* Layout: a designer's cutting mat. Words are paper stickers, tools are app stickers,
+   and every film plays on a laptop or phone lying on the mat. Six sections, one per screen. */
+:root{
+  --mat:#2B4A97; --mat-glow:rgba(92,132,230,.38); --grid:rgba(225,235,255,.13); --grid-major:rgba(225,235,255,.30);
+  --blue:#1F5BFF; --yellow:#FFE600; --paper:#FFFFFF; --ink:#0D0E11; --label:#0E0F12; --tag:#E4E7EE;
+  --text:#FFFFFF; --soft:#DCE5FF;
+  --display:"Anton","Impact","Arial Narrow Bold",sans-serif;
+  --body:"Poppins","Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:var(--body);font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;
+  background-color:var(--mat);
+  background-image:linear-gradient(var(--grid-major) 1.5px,transparent 1.5px),linear-gradient(90deg,var(--grid-major) 1.5px,transparent 1.5px),
+    linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:150px 150px,150px 150px,30px 30px,30px 30px;background-position:-1px -1px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--mat)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.inner{width:100%;max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ---------- mat pieces ---------- */
+.sec{position:relative;min-height:100svh;display:flex;align-items:center;padding-block:clamp(84px,9vw,120px);background:radial-gradient(90% 70% at 50% 45%,var(--mat-glow),transparent 75%)}
+.sec::before{content:"";position:absolute;left:0;right:0;top:0;height:26px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(235,242,255,.6) 1.5px,transparent 1.5px) 0 0/30px 15px repeat-x,
+             linear-gradient(90deg,rgba(235,242,255,.4) 1px,transparent 1px) 0 0/6px 7px repeat-x;border-top:2px solid rgba(235,242,255,.35)}
+.st{display:inline-block;font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:-.005em;padding:.08em .18em .03em;box-shadow:0 12px 20px rgba(5,15,45,.45),0 2px 3px rgba(5,15,45,.3);transform:rotate(var(--r,0deg))}
+.st.blue{background:var(--blue);color:#fff}.st.yellow{background:var(--yellow);color:var(--ink)}.st.white{background:var(--paper);color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--label);color:#fff;font-size:14px;font-weight:500;padding:6px 12px;border-radius:3px;box-shadow:0 8px 14px rgba(0,0,0,.35);text-decoration:none;white-space:nowrap}
+.chip.y{background:var(--yellow);color:var(--ink)}
+a.chip:hover{background:#000}
+.app{width:84px;height:84px;border-radius:22px;display:grid;place-items:center;font-size:33px;font-weight:700;letter-spacing:-.02em;border:5px solid #fff;box-shadow:0 12px 20px rgba(5,15,45,.45);transform:rotate(var(--r,0deg));flex:none}
+.app.ae{background:#00005B;color:#9999FF}.app.pr{background:#2A0034;color:#EA77FF}.app.ps{background:#001E36;color:#31A8FF}.app.ai{background:#330000;color:#FF9A00}
+.app.fg{background:#fff}.app.fg svg{width:44px;height:44px}
+.app.lt{background:#00DDB3;color:#033;font-size:15px;font-weight:700;letter-spacing:.02em}
+.tape{position:absolute;left:50%;top:-12px;width:90px;height:24px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,246,190,.72);box-shadow:0 1px 2px rgba(0,0,0,.15);pointer-events:none}
+.note{position:relative;background:var(--paper);color:var(--ink);padding:22px 22px 20px;box-shadow:0 14px 26px rgba(5,15,45,.45);transform:rotate(var(--r,0deg))}
+.note h3{margin:0 0 6px;font-family:var(--display);font-weight:400;font-size:22px;letter-spacing:.01em;text-transform:uppercase;line-height:1.1}
+.note p{margin:0;font-size:14.5px;color:#3A3D46}
+.note ul{margin:0;padding-left:18px;font-size:14.5px;color:#3A3D46;display:flex;flex-direction:column;gap:6px}
+
+/* ---------- devices: every film plays on a laptop or a phone ---------- */
+.dev{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;aspect-ratio:16/10.6;width:100%}
+.dev .body{position:relative;background:#0F1013;border:2px solid #2B2C31;box-shadow:0 26px 50px rgba(5,12,40,.55)}
+.dev .disp{position:relative;overflow:hidden;background:#000}
+.dev video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
+.dev.h .body{width:90%;border-radius:16px 16px 0 0;padding:1.6% 1.6% 2.6%}
+.dev.h .disp{aspect-ratio:16/10;border-radius:3px}
+.dev.h .base{display:block;width:100%;height:4.2%;background:linear-gradient(180deg,#E3E5EA,#A9ACB4 70%,#8B8E96);border-radius:0 0 16px 16px;box-shadow:0 18px 30px rgba(5,12,40,.5);position:relative}
+.dev.h .base::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:14%;height:45%;background:#9B9EA6;border-radius:0 0 8px 8px}
+.dev.v .body{height:100%;aspect-ratio:9/18.6;border-radius:38px;padding:9px}
+.dev.v .disp{height:100%;border-radius:30px}
+.dev.v video{object-fit:cover}
+.dev.v .body::before{content:"";position:absolute;left:50%;top:16px;transform:translateX(-50%);width:28%;height:16px;background:#000;border-radius:10px;z-index:2}
+.dev.v .base{display:none}
+.ctl{display:flex;align-items:center;gap:6px;margin-top:16px;background:var(--label);border-radius:6px;padding:7px 8px;box-shadow:0 10px 18px rgba(0,0,0,.35)}
+.ctl button{flex:none;height:32px;min-width:32px;padding:0 9px;display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:4px;background:#24262C;color:#fff;cursor:pointer}
+.ctl button:hover{background:#34363D}
+.ctl svg{width:15px;height:15px}
+.player.single .b-prev,.player.single .b-next{display:none}
+.b-play .i-play{display:none}
+.player.paused .b-play .i-play{display:block}.player.paused .b-play .i-pause{display:none}
+.ct{font-size:12px;font-weight:600;min-width:72px;text-align:center;font-variant-numeric:tabular-nums;color:#C9CEDA}
+.prog{flex:1;height:6px;border-radius:3px;background:#34363D;overflow:hidden;min-width:30px}
+.prog i{display:block;height:100%;width:0;background:var(--yellow)}
+.b-snd{font-size:12px;font-weight:600}
+.b-snd[aria-pressed="true"]{background:var(--yellow)!important;color:var(--ink)!important}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;overflow:hidden;background:radial-gradient(70% 60% at 52% 52%,var(--mat-glow),transparent 75%)}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:26px;z-index:1;background:linear-gradient(90deg,rgba(235,242,255,.6) 1.5px,transparent 1.5px) 0 0/30px 15px repeat-x,linear-gradient(90deg,rgba(235,242,255,.4) 1px,transparent 1px) 0 0/6px 7px repeat-x}
+.hero::after{content:"";position:absolute;left:0;top:0;bottom:0;width:26px;z-index:1;background:linear-gradient(rgba(235,242,255,.6) 1.5px,transparent 1.5px) 0 0/15px 30px repeat-y,linear-gradient(rgba(235,242,255,.4) 1px,transparent 1px) 0 0/7px 6px repeat-y}
+.h-abs{position:absolute;z-index:3}
+.lap{left:-3.5%;top:-7%;width:min(42vw,620px);transform:rotate(-9deg);z-index:2}
+.lap .dev{aspect-ratio:auto}
+.logo{left:50%;top:7%;transform:translateX(-50%) rotate(-2deg);display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);padding:8px 16px 8px 8px;border-radius:40px;box-shadow:0 10px 18px rgba(5,15,45,.4);text-decoration:none}
+.logo .mk{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:19px;letter-spacing:.02em;border:3px solid #fff;box-shadow:0 0 0 2px var(--blue)}
+.logo b{font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:.02em;text-transform:uppercase}
+.handle{left:50%;top:27%;transform:translateX(-78%) rotate(-2deg);display:flex;align-items:center}
+.handle .chip{font-size:16px;padding:7px 46px 7px 18px}
+.handle .be{width:56px;height:56px;margin-left:-28px;border-radius:15px;background:#1769FF;color:#fff;display:grid;place-items:center;font-weight:700;font-size:21px;border:4px solid #fff;box-shadow:0 8px 14px rgba(5,15,45,.4);transform:rotate(8deg);text-decoration:none}
+.hl{left:50%;top:35%;transform:translateX(-50%);width:min(860px,74vw);display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.hl .st{font-size:clamp(44px,6.4vw,100px)}
+.hl .s1{--r:-8deg;margin-left:0}
+.hl .s2{--r:6deg;margin:-1% 0 0 58%;padding-inline:.32em}
+.hl .s3{--r:1.5deg;margin:-1% 0 0 14%}
+.tagline{margin:18px 0 0 22%;font-size:clamp(14px,1.35vw,18px);font-weight:500;color:#fff;letter-spacing:-.01em}
+.talk{position:absolute;right:-2%;top:46%;z-index:4;display:flex;align-items:flex-end;text-decoration:none}
+.talk span{background:var(--tag);color:#2457F5;font-weight:600;font-size:clamp(16px,1.8vw,24px);padding:4px 18px;transform:rotate(-17deg);box-shadow:0 8px 14px rgba(5,15,45,.35)}
+.talk svg{width:54px;height:54px;margin:0 0 -34px -18px;filter:drop-shadow(0 4px 4px rgba(0,0,0,.35))}
+.tgl{right:22%;top:33%;display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;cursor:pointer;padding:0}
+.tgl .trk{width:128px;height:66px;border-radius:40px;background:linear-gradient(180deg,#FFFFFF,#E9EBF0);box-shadow:0 12px 20px rgba(5,15,45,.45),inset 0 -3px 6px rgba(0,0,0,.08);position:relative;transition:background .2s}
+.tgl .knob{position:absolute;top:7px;left:7px;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#D9DCE3);box-shadow:0 4px 8px rgba(0,0,0,.25);transition:left .2s}
+.tgl[aria-pressed="true"] .trk{background:linear-gradient(180deg,#3C74FF,#1F5BFF)}
+.tgl[aria-pressed="true"] .knob{left:69px}
+.tgl .chip{font-size:12px;padding:4px 9px}
+.a1{left:15%;top:61%;--r:-12deg}.a2{right:13%;top:63%;--r:9deg}.a3{left:24%;top:77%;--r:6deg}.a4{right:30%;top:16%;--r:12deg;width:66px;height:66px;font-size:26px;border-radius:18px}
+.tools{left:-1%;bottom:4%;transform:rotate(-14deg);width:62px;background:#232428;border-radius:10px;padding:10px 0;display:flex;flex-direction:column;align-items:center;gap:13px;box-shadow:0 14px 24px rgba(0,0,0,.45)}
+.tools svg{width:22px;height:22px;color:#D6D8DE}
+.ph{right:3%;bottom:-15%;width:min(15vw,200px);transform:rotate(16deg);z-index:2}
+.ph .dev{aspect-ratio:9/18.6}
+.qr{left:3%;bottom:5%;display:flex;align-items:flex-end;gap:10px}
+.qr .code{background:#fff;padding:8px;border-radius:6px;box-shadow:0 10px 18px rgba(5,15,45,.45)}
+.qr .code img,.qr .code canvas{display:block;width:84px;height:84px}
+.qr .chip{font-size:13px}
+.cv{left:50%;bottom:-3px;transform:translateX(-50%);width:min(280px,30vw);background:#fff;padding:10px 10px 0;border-radius:6px 6px 0 0;box-shadow:0 -6px 24px rgba(5,15,45,.4);text-decoration:none;display:block}
+.cv img{display:block;width:100%;height:150px;object-fit:cover;object-position:top}
+.cv .chip{position:absolute;left:50%;top:-16px;transform:translateX(-50%) rotate(-3deg)}
+.loc{right:15%;bottom:7%;transform:rotate(-2deg)}
+.rec{left:5%;top:9%;display:flex;flex-direction:column;align-items:flex-start;gap:10px;transform:rotate(-6deg)}
+.rec .chip{font-size:15px;padding:7px 14px;font-variant-numeric:tabular-nums}
+.rec .chip i{width:10px;height:10px;border-radius:50%;background:#FF3B30;display:inline-block;margin-right:2px}
+.rec .chip.y{font-size:12.5px;margin-left:24px}
+.tl-strip{right:3%;bottom:14%;width:min(24vw,330px);background:#1D1E23;border-radius:8px;padding:10px 10px 12px;transform:rotate(8deg);box-shadow:0 14px 24px rgba(0,0,0,.45);display:flex;flex-direction:column;gap:7px;position:absolute}
+.tl-ruler{height:10px;background:linear-gradient(90deg,#6B6F7A 1px,transparent 1px) 0 0/12px 10px repeat-x;opacity:.8;margin-bottom:2px}
+.lyr{height:13px;border-radius:3px;background:#2A2C33;position:relative}
+.lyr::after{content:"";position:absolute;top:0;bottom:0;left:var(--x);width:var(--w);background:var(--c);border-radius:3px;opacity:.9}
+.ph-line{position:absolute;top:6px;bottom:6px;left:58%;width:2px;background:#FF3B30}
+.ph-line::before{content:"";position:absolute;top:-4px;left:-5px;width:12px;height:10px;background:#FF3B30;clip-path:polygon(0 0,100% 0,50% 100%)}
+
+/* ---------- section heads ---------- */
+.head{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:clamp(36px,5vw,60px)}
+.head .st{font-size:clamp(44px,6.4vw,92px)}
+.head p{margin:0;max-width:56ch;color:var(--soft);font-size:16.5px}
+.num{font-size:13px;letter-spacing:.06em}
+
+/* ---------- case studies ---------- */
+.case{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start}
+.case + .case{margin-top:clamp(70px,8vw,110px)}
+.case.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.case.flip .c-media{order:2}
+.c-media{min-width:0}
+.c-text{display:flex;flex-direction:column;gap:26px;min-width:0}
+.c-title{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.c-title .st{font-size:clamp(30px,3.6vw,50px)}
+.c-meta{display:flex;flex-wrap:wrap;gap:8px}
+.c-meta .chip{font-size:12.5px;padding:5px 10px}
+.frames{grid-column:1/-1;order:3;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:8px}
+.pol{position:relative;background:#fff;padding:8px 8px 10px;box-shadow:0 12px 22px rgba(5,15,45,.45);transform:rotate(var(--r,0deg));color:var(--ink);margin:0}
+.pol img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.pol figcaption{font-size:12.5px;font-weight:600;padding-top:7px}
+.mini{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.mini button{border:0;cursor:pointer;background:#fff;color:var(--ink);font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:3px;box-shadow:0 6px 12px rgba(0,0,0,.3)}
+.mini button.on{background:var(--yellow)}
+
+/* ---------- work sections ---------- */
+.work{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center}
+.work.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+.work.flip .player{order:2}
+.player{min-width:0}
+.stickers{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:26px 18px}
+.stk{display:flex;flex-direction:column;gap:9px;padding:0;border:0;background:none;cursor:pointer;text-align:left;transform:rotate(var(--r));transition:transform .18s;min-width:0}
+.stk:hover{transform:rotate(0deg) translateY(-4px)}
+.stk-img{display:block;background:#fff;padding:5px;box-shadow:0 10px 18px rgba(5,15,45,.45)}
+.stk-img img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.85)}
+.stk-cap{display:grid;grid-template-columns:auto 1fr auto;gap:7px;align-items:baseline;background:var(--label);padding:4px 8px;border-radius:2px;font-size:12px;box-shadow:0 6px 10px rgba(0,0,0,.3);min-width:0}
+.stk-cap b{color:var(--yellow);font-weight:700}
+.stk-cap span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.stk-cap em{font-style:normal;color:#AEB4C4;font-variant-numeric:tabular-nums}
+.stk.on{transform:rotate(0) translateY(-6px) scale(1.04)}
+.stk.on .stk-cap{background:var(--yellow);color:var(--ink)}
+.stk.on .stk-cap b{color:var(--ink)}.stk.on .stk-cap em{color:#3A3D46}
+.stk.on .stk-img img{filter:none}
+.who{align-self:flex-start;margin-top:12px;display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--label);color:#fff;padding:4px 9px;border-radius:2px}
+.who.fr{background:#E4E7EE;color:var(--ink)}
+.now-n{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B7080;margin-bottom:6px}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:center}
+.about .note p{font-size:16px;line-height:1.65}
+.steps{display:flex;flex-direction:column;gap:16px}
+.steps li{list-style:none;display:flex;align-items:center;gap:12px;transform:rotate(var(--r,0deg))}
+.steps ol{margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.steps .yr{flex:none;background:var(--yellow);color:var(--ink);font-family:var(--display);font-size:20px;padding:4px 10px;box-shadow:0 8px 14px rgba(0,0,0,.35)}
+.steps .what{background:#fff;color:var(--ink);padding:8px 14px;font-size:14.5px;box-shadow:0 8px 14px rgba(0,0,0,.35)}
+.steps .what b{display:block;font-size:15px}
+.toolrow{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px}
+.toolrow .app{width:66px;height:66px;font-size:26px;border-radius:18px;border-width:4px}
+.toolrow .app.fg svg{width:34px;height:34px}
+.toolrow .app.lt{font-size:12px}
+.badge{position:relative;width:150px;height:150px;display:grid;place-items:center;text-align:center;color:var(--ink);transform:rotate(-8deg);flex:none}
+.badge::before{content:"";position:absolute;inset:0;background:var(--yellow);clip-path:polygon(50% 0,61% 13%,77% 6%,80% 22%,96% 25%,89% 40%,100% 50%,89% 60%,96% 75%,80% 78%,77% 94%,61% 87%,50% 100%,39% 87%,23% 94%,20% 78%,4% 75%,11% 60%,0 50%,11% 40%,4% 25%,20% 22%,23% 6%,39% 13%);filter:drop-shadow(0 10px 14px rgba(0,0,0,.4))}
+.badge span{position:relative;font-family:var(--display);font-size:20px;line-height:1.05;text-transform:uppercase}
+.badge small{display:block;font-family:var(--body);font-size:10.5px;font-weight:700;letter-spacing:.06em}
+
+/* ---------- contact ---------- */
+.contact .inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
+.bigst{display:flex;flex-direction:column;align-items:center}
+.bigst .st{font-size:clamp(54px,10vw,150px)}
+.bigst .c1{--r:-6deg}.bigst .c2{--r:2deg;margin-top:-1%}.bigst .c3{--r:-2deg;margin-top:-1%}
+.mail{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin-top:14px}
+.mail code{font-family:var(--body);font-weight:600;font-size:clamp(15px,2vw,20px);background:#fff;color:var(--ink);padding:10px 16px;box-shadow:0 10px 18px rgba(0,0,0,.35);user-select:all;overflow-wrap:anywhere}
+.mail button{border:0;cursor:pointer;background:var(--yellow);color:var(--ink);font-weight:700;font-size:14px;padding:12px 16px;box-shadow:0 10px 18px rgba(0,0,0,.35)}
+.links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.links .chip{font-size:15px;padding:8px 14px}
+.foot{font-size:12.5px;color:var(--soft);margin:10px 0 0}
+.contact .qr2{display:flex;align-items:center;gap:12px}
+.contact .qr2 .code{background:#fff;padding:8px;border-radius:6px;box-shadow:0 10px 18px rgba(0,0,0,.35)}
+.contact .qr2 img,.contact .qr2 canvas{display:block;width:96px;height:96px}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;gap:4px;background:var(--label);padding:6px;border-radius:8px;box-shadow:0 12px 26px rgba(0,0,0,.45);max-width:calc(100vw - 24px);overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:12.5px;font-weight:600;color:#D6D9E2;padding:7px 11px;border-radius:5px;white-space:nowrap}
+.nav a b{color:#7D8394;font-weight:600;margin-right:5px}
+.nav a:hover{background:#24262C}
+.nav a[aria-current="true"]{background:var(--yellow);color:var(--ink)}
+.nav a[aria-current="true"] b{color:var(--ink)}
+
+@media (max-width:980px){
+  .hero{display:flex;flex-direction:column;align-items:center;gap:22px;padding:52px max(16px,env(safe-area-inset-right,0px)) 110px max(16px,env(safe-area-inset-left,0px))}
+  .h-abs{position:static;transform:none}
+  .logo{transform:rotate(-2deg);order:1}
+  .lap{order:5;width:100%;max-width:560px;transform:rotate(-2deg)}
+  .handle{order:2;transform:rotate(-2deg)}
+  .hl{order:3;width:100%;align-items:center}
+  .hl .st{font-size:clamp(40px,12vw,84px)}
+  .hl .s1,.hl .s2,.hl .s3{margin:0}
+  .hl .s2{margin-top:-2px}
+  .tagline{margin:16px 0 0;text-align:center}
+  .talk{position:static;order:4;margin-top:14px}
+  .talk span{transform:rotate(-6deg)}
+  .tgl{order:6}
+  .apps-m{order:7;display:flex!important;gap:14px;flex-wrap:wrap;justify-content:center}
+  .a1,.a2,.a3,.a4,.tools,.qr,.loc,.tl-strip{display:none}
+  .rec{order:0;transform:rotate(-3deg);align-items:center}
+  .rec .chip.y{margin-left:0}
+  .cv{position:relative;order:8;left:auto;bottom:auto;transform:rotate(-2deg);width:240px;border-radius:6px;padding-bottom:10px;margin-top:20px}
+  .case,.case.flip,.work,.work.flip,.about{grid-template-columns:minmax(0,1fr)}
+  .case.flip .c-media,.work.flip .player{order:0}
+  .frames{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stickers{grid-auto-flow:column;grid-auto-columns:160px;grid-template-columns:none;overflow-x:auto;padding:10px 4px 14px;scroll-snap-type:x mandatory}
+  .stk{scroll-snap-align:start}
+  .sec{min-height:0}
+  .ct{display:none}
+}
+@media (min-width:981px){.apps-m{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<!-- 01 HERO -->
+<header class="hero" id="home" aria-label="Nitesh Kumar, motion graphics designer">
+  <div class="h-abs rec" aria-hidden="true"><span class="chip"><i></i>REC&nbsp; 00:00:24:12</span><span class="chip y">25 fps · 4K · 16:9 · 9:16</span></div>
+  <div class="h-abs tl-strip" aria-hidden="true"><div class="tl-ruler"></div><div class="lyr" style="--w:72%;--x:4%;--c:#1F5BFF"></div><div class="lyr" style="--w:48%;--x:20%;--c:#FFE600"></div><div class="lyr" style="--w:60%;--x:34%;--c:#EA77FF"></div><div class="lyr" style="--w:38%;--x:10%;--c:#31A8FF"></div><span class="ph-line"></span></div>
+  <a class="h-abs logo" href="#home" aria-label="Nitesh Kumar, home"><span class="mk">NK</span><b>Nitesh Kumar</b></a>
+  <div class="h-abs handle"><span class="chip">@niteshkumar452</span><a class="be" href="https://www.behance.net/niteshkumar452" target="_blank" rel="noopener" aria-label="Behance profile">Bē</a></div>
+  <div class="h-abs hl">
+    <h1 style="margin:0;display:contents">
+      <span class="st blue s1">Motion graphics</span>
+      <span class="st yellow s2">&amp;</span>
+      <span class="st white s3">video editing</span>
+    </h1>
+    <p class="tagline">Motion graphics designer &amp; video editor. I design, animate and edit videos that make ideas clear and keep people watching.</p>
+    <a class="talk" href="#contact"><span>Let's talk</span><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M24 10c2.8 0 5 2.2 5 5v15l2-1c2.4-1 5 .4 5.6 2.8l.2.7c2.4-1 5 .4 5.6 2.8l.2.6c2.4-.8 4.9.7 5.4 3.2l1.6 8.6c.9 5-1 10-5 13l-1.5 1.1H28.5l-9.8-12.4c-1.6-2-1.3-5 .7-6.6 1.8-1.4 4.3-1.3 6 .2l-6.4-.2V15c0-2.8 2.2-5 5-5z" fill="#fff" stroke="#000" stroke-width="2.6" stroke-linejoin="round"/><path d="M31 31v9M37 33v8M43 36v7" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg></a>
+  </div>
+  <button class="h-abs tgl" type="button" id="motionToggle" aria-pressed="true" aria-label="Autoplay videos"><span class="trk"><span class="knob"></span></span><span class="chip">Autoplay</span></button>
+  <span class="h-abs app ae a1" title="After Effects">Ae</span>
+  <span class="h-abs app pr a2" title="Premiere Pro">Pr</span>
+  <span class="h-abs app fg a3" title="Figma"><svg viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 019.5 38H19v9.5a9.5 9.5 0 11-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 100-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 009.5 19H19V0H9.5A9.5 9.5 0 000 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 009.5 38H19V19H9.5A9.5 9.5 0 000 28.5z" fill="#A259FF"/></svg></span>
+  <span class="h-abs app ps a4" title="Photoshop">Ps</span>
+  <div class="apps-m" aria-hidden="true"><span class="app ae" style="--r:-8deg">Ae</span><span class="app pr" style="--r:6deg">Pr</span><span class="app ps" style="--r:-4deg">Ps</span><span class="app fg" style="--r:7deg"><svg viewBox="0 0 38 57"><path d="M19 28.5a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 019.5 38H19v9.5a9.5 9.5 0 11-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 100-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 009.5 19H19V0H9.5A9.5 9.5 0 000 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 009.5 38H19V19H9.5A9.5 9.5 0 000 28.5z" fill="#A259FF"/></svg></span></div>
+  <div class="h-abs tools" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l12 7-5 1.5L10 17z"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-dasharray="3 2.5"><rect x="4" y="5" width="16" height="14"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v16h16M2 6h16v16"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3l3 9-3 3-3-3zM12 15v6"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 5h12M12 5v14"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg>
+  </div>
+  <div class="h-abs qr"><div class="code" id="qrHero" aria-label="QR code to LinkedIn profile" role="img"></div><span class="chip">Scan · LinkedIn</span></div>
+  <span class="h-abs chip loc">Faridabad · Delhi NCR</span>
+  <a class="h-abs cv" href="assets/Nitesh_Kumar_Resume.pdf" target="_blank" rel="noopener"><span class="chip y">My resume ↗</span><img src="assets/resume-top.jpg" alt="Top of Nitesh Kumar's resume"></a>
+</header>
+
+<!-- 02 CASE STUDIES -->
+<section class="sec" id="cases" aria-labelledby="cases-h">
+ <div class="inner">
+  <div class="head"><span class="chip num">02 / 06</span><h2 class="st yellow" id="cases-h" style="--r:-2deg">Case studies</h2><p>Two projects from brief to final film: what the job was, what I did and what was delivered.</p></div>
+
+  <article class="case" data-scope>
+   <div class="c-media">
+    <div class="player single" data-list="case-vb">
+     <div class="dev h"><div class="body"><div class="disp"><video muted playsinline preload="none" poster="assets/new/voicebrew.jpg" data-src="assets/new/voicebrew.mp4"></video></div></div><div class="base"></div></div>
+     <div class="ctl">
+      <button type="button" class="b-prev" aria-label="Previous film"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="b-play" aria-label="Play or pause"><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+      <button type="button" class="b-next" aria-label="Next film"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="ct">0:00 / 1:14</span><div class="prog" aria-hidden="true"><i></i></div>
+      <button type="button" class="b-snd" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/></svg><span>Sound off</span></button>
+      <button type="button" class="b-fs" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></button>
+     </div>
+    </div>
+   </div>
+   <div class="c-text">
+    <div class="c-title"><span class="chip">Case 01</span><h3 class="st white" style="--r:-1.5deg">VoiceBrew · AI voice agent launch</h3><div class="c-meta"><span class="chip y">Made for Blostem</span><span class="chip">1:14 · 16:9</span><span class="chip">After Effects</span></div></div>
+    <div class="note" style="--r:-1deg"><span class="tape"></span><h3>The job</h3><p>Launch an AI voice agent that calls customers in Hindi and English, and show what it does in about a minute.</p></div>
+    <div class="note" style="--r:.8deg"><span class="tape"></span><h3>What I did</h3><ul><li>Built a dark, warm look where ringing phones turn into UI cards.</li><li>Animated the real features: compliance checks, spam-adaptive routing, a live Hindi–English transcript and a lead score.</li><li>Closed on three proof numbers: 10× more qualified leads, 1/5 the cost of a human team, a live demo call in under 60 seconds.</li></ul></div>
+   </div>
+   <div class="frames">
+    <figure class="pol" style="--r:-2deg"><img src="assets/case/vb1.jpg" alt="Hello in Hindi and English" loading="lazy"><figcaption>01 · Hello, in two languages</figcaption></figure>
+    <figure class="pol" style="--r:1.5deg"><img src="assets/case/vb2.jpg" alt="Compliance and routing cards" loading="lazy"><figcaption>02 · Compliance, baked in</figcaption></figure>
+    <figure class="pol" style="--r:-1deg"><img src="assets/case/vb4.jpg" alt="Live transcript and lead score" loading="lazy"><figcaption>03 · Live transcript + lead score</figcaption></figure>
+    <figure class="pol" style="--r:2deg"><img src="assets/case/vb3.jpg" alt="Proof numbers" loading="lazy"><figcaption>04 · Proof in numbers</figcaption></figure>
+   </div>
+  </article>
+
+  <article class="case flip" data-scope>
+   <div class="c-media">
+    <div class="player" data-list="case-gff">
+     <div class="dev h"><div class="body"><div class="disp"><video muted playsinline preload="none" poster="assets/bw/gff-hero.jpg" data-src="assets/bw/gff-hero.mp4"></video></div></div><div class="base"></div></div>
+     <div class="ctl">
+      <button type="button" class="b-prev" aria-label="Previous film"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="b-play" aria-label="Play or pause"><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+      <button type="button" class="b-next" aria-label="Next film"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="ct">0:00 / 0:39</span><div class="prog" aria-hidden="true"><i></i></div>
+      <button type="button" class="b-snd" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/></svg><span>Sound off</span></button>
+      <button type="button" class="b-fs" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></button>
+     </div>
+     <div class="mini" aria-label="Films in this case">
+      <button type="button" class="on" data-i="0">Booth hero film</button><button type="button" data-i="1">Fixed Deposits</button><button type="button" data-i="2">Bonds</button><button type="button" data-i="3">Jaano · Video KYC</button>
+     </div>
+    </div>
+   </div>
+   <div class="c-text">
+    <div class="c-title"><span class="chip">Case 02</span><h3 class="st white" style="--r:1.5deg">Global Fintech Fest 2026 · product films</h3><div class="c-meta"><span class="chip y">Made for Blostem</span><span class="chip">8 films · 16:9 + 9:16</span><span class="chip">After Effects · Figma</span></div></div>
+    <div class="note" style="--r:1deg"><span class="tape"></span><h3>The job</h3><p>Explain a full product line-up (FDs, RDs, bonds, credit cards, loans, loans against mutual funds and video-KYC) to visitors at a GFF 2026 booth.</p></div>
+    <div class="note" style="--r:-.8deg"><span class="tape"></span><h3>What I did</h3><ul><li>Took the real app screens from Figma and animated each product's user journey in 35–45 seconds.</li><li>Made a 16:9 hero film where six products slide in as tabs over a ticker of 25+ partner logos.</li><li>Gave every product its own colour world so the set reads as one family.</li></ul></div>
+   </div>
+   <div class="frames">
+    <figure class="pol" style="--r:1.5deg"><img src="assets/case/gff1.jpg" alt="Credit card product frame" loading="lazy"><figcaption>01 · Credit Card</figcaption></figure>
+    <figure class="pol" style="--r:-2deg"><img src="assets/case/gff2.jpg" alt="Recurring deposit product frame" loading="lazy"><figcaption>02 · Recurring Deposit</figcaption></figure>
+    <figure class="pol" style="--r:1deg"><img src="assets/case/gff3.jpg" alt="Loan against mutual funds frame" loading="lazy"><figcaption>03 · Loan Against MF</figcaption></figure>
+    <figure class="pol" style="--r:-1.5deg"><img src="assets/case/gff4.jpg" alt="Your app frame" loading="lazy"><figcaption>04 · Inside your app</figcaption></figure>
+   </div>
+  </article>
+ </div>
+</section>
+
+<!-- 03 MOTION GRAPHICS -->
+<section class="sec" id="motion" aria-labelledby="motion-h" data-scope>
+ <div class="inner">
+  <div class="head"><span class="chip num">03 / 06</span><h2 class="st blue" id="motion-h" style="--r:-2.5deg">Motion graphics</h2><p>SaaS launch films, pitches, UI walkthroughs and Lottie, mostly built from a script and real Figma screens.</p></div>
+  <div class="work">
+   <div class="player" data-list="motion">
+    <div class="dev h"><div class="body"><div class="disp"><video muted playsinline preload="none" poster="assets/new/voicebrew.jpg" data-src="assets/new/voicebrew.mp4"></video></div></div><div class="base"></div></div>
+    <div class="ctl">
+     <button type="button" class="b-prev" aria-label="Previous film"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+     <button type="button" class="b-play" aria-label="Play or pause"><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+     <button type="button" class="b-next" aria-label="Next film"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+     <span class="ct">0:00 / 1:14</span><div class="prog" aria-hidden="true"><i></i></div>
+     <button type="button" class="b-snd" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/></svg><span>Sound off</span></button>
+     <button type="button" class="b-fs" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></button>
+    </div>
+   </div>
+   <div class="note" style="--r:1.2deg" aria-live="polite"><span class="tape"></span><span class="now-n">Now playing · 01 / 07</span><h3 class="now-t">VoiceBrew · AI Voice Agent Launch</h3><p class="now-d">Ringing phones turn into UI cards: ready call recipes, a live Hindi–English transcript and a lead score.</p><span class="who">Made for Blostem</span></div>
+  </div>
+  <div class="stickers" aria-label="Motion graphics films"><button class="stk on" type="button" data-i="0" style="--r:-2.2deg" aria-label="Play VoiceBrew · AI Voice Agent Launch" aria-current="true">
+  <span class="stk-img h"><img src="assets/new/voicebrew.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>01</b><span>VoiceBrew · AI Voice Agent Launch</span><em>1:14</em></span>
+</button><button class="stk" type="button" data-i="1" style="--r:1.6deg" aria-label="Play Behind Every FD Booking">
+  <span class="stk-img h"><img src="assets/new/behindfd.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>02</b><span>Behind Every FD Booking</span><em>0:42</em></span>
+</button><button class="stk" type="button" data-i="2" style="--r:-1.2deg" aria-label="Play Plug &amp; Play Product Ecosystem">
+  <span class="stk-img h"><img src="assets/bw/gff-hero.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>03</b><span>Plug &amp; Play Product Ecosystem</span><em>0:39</em></span>
+</button><button class="stk" type="button" data-i="3" style="--r:2.4deg" aria-label="Play Fixed Deposits · UI Walkthrough">
+  <span class="stk-img v"><img src="assets/bw/gff-fd.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>04</b><span>Fixed Deposits · UI Walkthrough</span><em>0:40</em></span>
+</button><button class="stk" type="button" data-i="4" style="--r:-1.8deg" aria-label="Play Jio Finance Partnership">
+  <span class="stk-img h"><img src="assets/bw/p-jio.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>05</b><span>Jio Finance Partnership</span><em>0:40</em></span>
+</button><button class="stk" type="button" data-i="5" style="--r:1.1deg" aria-label="Play DCB Bank Digital FD · LED Wall">
+  <span class="stk-img h"><img src="assets/bw/p-dcb.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>06</b><span>DCB Bank Digital FD · LED Wall</span><em>1:19</em></span>
+</button><button class="stk" type="button" data-i="6" style="--r:-2.6deg" aria-label="Play RD Onboarding · Lottie">
+  <span class="stk-img v"><img src="assets/bw/m-lottie-rd.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>07</b><span>RD Onboarding · Lottie</span><em>0:19</em></span>
+</button></div>
+ </div>
+</section>
+
+<!-- 04 VIDEO EDITING -->
+<section class="sec" id="editing" aria-labelledby="editing-h" data-scope>
+ <div class="inner">
+  <div class="head"><span class="chip num">04 / 06</span><h2 class="st white" id="editing-h" style="--r:2deg">Video editing</h2><p>Event films, culture reels, coach reels and AI-made festive films, cut for LinkedIn and Instagram.</p></div>
+  <div class="work flip">
+   <div class="player" data-list="editing">
+    <div class="dev h"><div class="body"><div class="disp"><video muted playsinline preload="none" poster="assets/bw/e-gff.jpg" data-src="assets/bw/e-gff.mp4"></video></div></div><div class="base"></div></div>
+    <div class="ctl">
+     <button type="button" class="b-prev" aria-label="Previous film"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+     <button type="button" class="b-play" aria-label="Play or pause"><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+     <button type="button" class="b-next" aria-label="Next film"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+     <span class="ct">0:00 / 0:50</span><div class="prog" aria-hidden="true"><i></i></div>
+     <button type="button" class="b-snd" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/></svg><span>Sound off</span></button>
+     <button type="button" class="b-fs" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></button>
+    </div>
+   </div>
+   <div class="note" style="--r:-1.2deg" aria-live="polite"><span class="tape"></span><span class="now-n">Now playing · 01 / 07</span><h3 class="now-t">Global Fintech Fest 2026 Recap</h3><p class="now-d">Booth, team, partner moments and product demos at Jio World Convention Centre.</p><span class="who">Made for Blostem</span></div>
+  </div>
+  <div class="stickers" aria-label="Video editing films"><button class="stk on" type="button" data-i="0" style="--r:-2.2deg" aria-label="Play Global Fintech Fest 2026 Recap" aria-current="true">
+  <span class="stk-img h"><img src="assets/bw/e-gff.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>01</b><span>Global Fintech Fest 2026 Recap</span><em>0:50</em></span>
+</button><button class="stk" type="button" data-i="1" style="--r:1.6deg" aria-label="Play DCB Bank at GFF">
+  <span class="stk-img h"><img src="assets/new/dcbgff.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>02</b><span>DCB Bank at GFF</span><em>1:19</em></span>
+</button><button class="stk" type="button" data-i="2" style="--r:-1.2deg" aria-label="Play AI Hackathon 2026">
+  <span class="stk-img v"><img src="assets/new/hackathon.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>03</b><span>AI Hackathon 2026</span><em>1:13</em></span>
+</button><button class="stk" type="button" data-i="3" style="--r:2.4deg" aria-label="Play Coach Reel · 90 Days Free">
+  <span class="stk-img v"><img src="assets/new/coach6.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>04</b><span>Coach Reel · 90 Days Free</span><em>0:44</em></span>
+</button><button class="stk" type="button" data-i="4" style="--r:-1.8deg" aria-label="Play Green Screen · Money Heat Look">
+  <span class="stk-img v"><img src="assets/work/look-heat.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>05</b><span>Green Screen · Money Heat Look</span><em>0:56</em></span>
+</button><button class="stk" type="button" data-i="5" style="--r:1.1deg" aria-label="Play Diwali 2026 Film · AI">
+  <span class="stk-img h"><img src="assets/bw/f-diwali.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>06</b><span>Diwali 2026 Film · AI</span><em>1:13</em></span>
+</button><button class="stk" type="button" data-i="6" style="--r:-2.6deg" aria-label="Play Across India, One Tap at a Time · AI">
+  <span class="stk-img h"><img src="assets/bw/p-india.jpg" alt="" loading="lazy"></span>
+  <span class="stk-cap"><b>07</b><span>Across India, One Tap at a Time · AI</span><em>0:49</em></span>
+</button></div>
+ </div>
+</section>
+
+<!-- 05 ABOUT -->
+<section class="sec" id="about" aria-labelledby="about-h">
+ <div class="inner">
+  <div class="head"><span class="chip num">05 / 06</span><h2 class="st yellow" id="about-h" style="--r:-1.5deg">About me</h2></div>
+  <div class="about">
+   <div style="display:flex;flex-direction:column;gap:28px">
+    <div class="note" style="--r:-1deg"><span class="tape"></span><h3>Hi, I'm Nitesh</h3><p>I'm a motion graphics designer from Faridabad. I take a script and a stack of Figma screens and turn them into short films that explain a product fast: SaaS launch films, UI walkthroughs and Lottie animations that ship inside apps.</p></div>
+    <div><span class="chip" style="margin-bottom:12px">My tools</span>
+     <div class="toolrow"><span class="app ae" style="--r:-6deg" title="After Effects">Ae</span><span class="app pr" style="--r:5deg" title="Premiere Pro">Pr</span><span class="app ps" style="--r:-3deg" title="Photoshop">Ps</span><span class="app ai" style="--r:6deg" title="Illustrator">Ai</span><span class="app fg" style="--r:-5deg" title="Figma"><svg viewBox="0 0 38 57" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 019.5 38H19v9.5a9.5 9.5 0 11-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 100-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 009.5 19H19V0H9.5A9.5 9.5 0 000 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 009.5 38H19V19H9.5A9.5 9.5 0 000 28.5z" fill="#A259FF"/></svg></span><span class="app lt" style="--r:4deg" title="Lottie">LOTTIE</span></div>
+    </div>
+   </div>
+   <div style="display:flex;flex-direction:column;gap:26px;align-items:flex-start">
+    <div class="steps"><ol>
+     <li style="--r:-1.5deg"><span class="yr">2023</span><span class="what"><b>Animation &amp; VFX · Arena</b>VFX Prime, finished with Distinction (2026)</span></li>
+     <li style="--r:1deg"><span class="yr">2025</span><span class="what"><b>WCEL Golden Ticket</b>Winner, Motion Graphics</span></li>
+     <li style="--r:-1deg"><span class="yr">2026</span><span class="what"><b>Motion Graphics Designer · Blostem</b>Latest role · B2B fintech SaaS, May–Nov 2026</span></li>
+    </ol></div>
+    <div class="badge" aria-label="WCEL 2025 Golden Ticket winner"><span>WCEL<br>2025<small>Golden Ticket<br>Winner</small></span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 06 CONTACT -->
+<section class="sec contact" id="contact" aria-labelledby="contact-h">
+ <div class="inner">
+  <span class="chip num">06 / 06</span>
+  <h2 class="bigst" id="contact-h" style="margin:0"><span class="st yellow c1">Let's make</span><span class="st white c2">your product</span><span class="st blue c3">move</span></h2>
+  <div class="mail"><code id="mail">niteshkumar24112003@gmail.com</code><button type="button" id="copy">Copy email</button></div>
+  <div class="links">
+   <a class="chip" href="https://www.behance.net/niteshkumar452" target="_blank" rel="noopener">Behance ↗</a>
+   <a class="chip" href="https://www.linkedin.com/in/nitesh-kumar-1aa346381/" target="_blank" rel="noopener">LinkedIn ↗</a>
+   <a class="chip y" href="assets/Nitesh_Kumar_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a>
+  </div>
+  <div class="qr2"><div class="code" id="qrContact" role="img" aria-label="QR code to LinkedIn profile"></div><span class="chip">Scan to open LinkedIn</span></div>
+  <p class="foot">Designed and built by Nitesh Kumar · 2026. Client work is shown with credit to the brands it was made for.</p>
+ </div>
+</section>
+
+<nav class="nav" id="nav" aria-label="Sections">
+ <a href="#home"><b>01</b>Home</a><a href="#cases"><b>02</b>Cases</a><a href="#motion"><b>03</b>Motion</a><a href="#editing"><b>04</b>Editing</a><a href="#about"><b>05</b>About</a><a href="#contact"><b>06</b>Contact</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+  var DATA = {"motion": [{"s": "assets/new/voicebrew.mp4", "p": "assets/new/voicebrew.jpg", "t": "VoiceBrew · AI Voice Agent Launch", "d": "Ringing phones turn into UI cards: ready call recipes, a live Hindi–English transcript and a lead score.", "c": "Made for Blostem", "o": "h", "dur": "1:14"}, {"s": "assets/new/behindfd.mp4", "p": "assets/new/behindfd.jpg", "t": "Behind Every FD Booking", "d": "One deposit from tap to bank: confirmation, documents, DICGC cover and many banks behind one brand.", "c": "Made for Blostem", "o": "h", "dur": "0:42"}, {"s": "assets/bw/gff-hero.mp4", "p": "assets/bw/gff-hero.jpg", "t": "Plug & Play Product Ecosystem", "d": "Booth hero film: six products slide in as tabs over a ticker of 25+ partner logos.", "c": "Made for Blostem", "o": "h", "dur": "0:39"}, {"s": "assets/bw/gff-fd.mp4", "p": "assets/bw/gff-fd.jpg", "t": "Fixed Deposits · UI Walkthrough", "d": "Real Figma screens animated into the full FD journey in 40 seconds.", "c": "Made for Blostem", "o": "v", "dur": "0:40"}, {"s": "assets/bw/p-jio.mp4", "p": "assets/bw/p-jio.jpg", "t": "Jio Finance Partnership", "d": "A space-scale open, then the FD booking flow inside the Jio Finance app.", "c": "Made for Blostem", "o": "h", "dur": "0:40"}, {"s": "assets/bw/p-dcb.mp4", "p": "assets/bw/p-dcb.jpg", "t": "DCB Bank Digital FD · LED Wall", "d": "Built at 1920×768 for a booth LED wall.", "c": "Made for Blostem", "o": "h", "dur": "1:19"}, {"s": "assets/bw/m-lottie-rd.mp4", "p": "assets/bw/m-lottie-rd.jpg", "t": "RD Onboarding · Lottie", "d": "In-app onboarding animation exported with Bodymovin.", "c": "Made for Blostem", "o": "v", "dur": "0:19"}], "editing": [{"s": "assets/bw/e-gff.mp4", "p": "assets/bw/e-gff.jpg", "t": "Global Fintech Fest 2026 Recap", "d": "Booth, team, partner moments and product demos at Jio World Convention Centre.", "c": "Made for Blostem", "o": "h", "dur": "0:50"}, {"s": "assets/new/dcbgff.mp4", "p": "assets/new/dcbgff.jpg", "t": "DCB Bank at GFF", "d": "Arrivals, the LED wall and leadership on building the future of digital banking.", "c": "Made for Blostem", "o": "h", "dur": "1:19"}, {"s": "assets/new/hackathon.mp4", "p": "assets/new/hackathon.jpg", "t": "AI Hackathon 2026", "d": "Bold kinetic titles over team moments, ending on the winners.", "c": "Made for Blostem", "o": "v", "dur": "1:13"}, {"s": "assets/new/coach6.mp4", "p": "assets/new/coach6.jpg", "t": "Coach Reel · 90 Days Free", "d": "Gold keyword captions, an online-meeting cutaway and a big offer moment.", "c": "Freelance client", "o": "v", "dur": "0:44"}, {"s": "assets/work/look-heat.mp4", "p": "assets/work/look-heat.jpg", "t": "Green Screen · Money Heat Look", "d": "Subject on black, giant captions behind, one gold hero moment.", "c": "Freelance client", "o": "v", "dur": "0:56"}, {"s": "assets/bw/f-diwali.mp4", "p": "assets/bw/f-diwali.jpg", "t": "Diwali 2026 Film · AI", "d": "A quiet, cinematic Diwali film about trust, made with AI video tools.", "c": "Made for Blostem", "o": "h", "dur": "1:13"}, {"s": "assets/bw/p-india.mp4", "p": "assets/bw/p-india.jpg", "t": "Across India, One Tap at a Time · AI", "d": "Five people across India booking FDs through partner apps.", "c": "Made for Blostem", "o": "h", "dur": "0:49"}], "case-vb": [{"s": "assets/new/voicebrew.mp4", "p": "assets/new/voicebrew.jpg", "t": "VoiceBrew · AI Voice Agent Launch", "d": "", "c": "Made for Blostem", "o": "h", "dur": "1:14"}], "case-gff": [{"s": "assets/bw/gff-hero.mp4", "p": "assets/bw/gff-hero.jpg", "t": "Booth Hero Film", "d": "16:9 hero film for the booth.", "c": "Made for Blostem", "o": "h", "dur": "0:39"}, {"s": "assets/bw/gff-fd.mp4", "p": "assets/bw/gff-fd.jpg", "t": "Fixed Deposits", "d": "FD journey in 40 seconds.", "c": "Made for Blostem", "o": "v", "dur": "0:40"}, {"s": "assets/bw/gff-bonds.mp4", "p": "assets/bw/gff-bonds.jpg", "t": "Bonds", "d": "Top opportunities to live portfolio.", "c": "Made for Blostem", "o": "v", "dur": "0:45"}, {"s": "assets/bw/gff-jaano.mp4", "p": "assets/bw/gff-jaano.jpg", "t": "Jaano · Video KYC", "d": "Verified in under 3 minutes.", "c": "Made for Blostem", "o": "v", "dur": "0:40"}]};
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var autoplay = !reduce;
+  function safePlay(v){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+  function fmt(s){ s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+
+  // decorative hero videos (laptop reel, phone reel)
+  var autos = document.querySelectorAll('video.auto');
+  function setAuto(on){ autos.forEach(function(v){ if (on) safePlay(v); else v.pause(); }); }
+  if (!autoplay) setAuto(false);
+
+  var players = [];
+  document.querySelectorAll('.player[data-list]').forEach(function(pl){
+    var list = DATA[pl.dataset.list]; if (!list) return;
+    var scope = pl.closest('[data-scope]') || pl;
+    var dev = pl.querySelector('.dev'), v = pl.querySelector('video');
+    var bar = pl.querySelector('.prog i'), ct = pl.querySelector('.ct'), snd = pl.querySelector('.b-snd');
+    var thumbs = scope.querySelectorAll('.stk, .mini button');
+    var P = {pl: pl, v: v, i: 0, userPaused: false, visible: false};
+    players.push(P);
+    function setText(sel, t){ var el = scope.querySelector(sel); if (el) el.textContent = t; }
+    function load(i, play){
+      i = (i + list.length) % list.length; P.i = i; var it = list[i];
+      dev.className = 'dev ' + it.o;
+      v.poster = it.p; v.src = it.s; bar.style.width = '0%'; ct.textContent = '0:00 / ' + it.dur;
+      setText('.now-t', it.t); setText('.now-d', it.d);
+      setText('.now-n', 'Now playing · ' + String(i + 1).padStart(2, '0') + ' / ' + String(list.length).padStart(2, '0'));
+      var who = scope.querySelector('.who'); if (who) { who.textContent = it.c; who.classList.toggle('fr', it.c !== 'Made for Blostem'); }
+      thumbs.forEach(function(t){ var on = +t.dataset.i === i; t.classList.toggle('on', on); if (on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current'); });
+      if (play) { P.userPaused = false; safePlay(v); } else pl.classList.add('paused');
+    }
+    thumbs.forEach(function(t){ t.addEventListener('click', function(){ load(+t.dataset.i, true); }); });
+    pl.querySelector('.b-prev').addEventListener('click', function(){ load(P.i - 1, true); });
+    pl.querySelector('.b-next').addEventListener('click', function(){ load(P.i + 1, true); });
+    pl.querySelector('.b-play').addEventListener('click', function(){
+      if (!v.getAttribute('src')) v.src = list[P.i].s;
+      if (v.paused) { P.userPaused = false; safePlay(v); } else { P.userPaused = true; v.pause(); }
+    });
+    snd.addEventListener('click', function(){
+      var on = v.muted;
+      players.forEach(function(o){ if (o !== P) { o.v.muted = true; var b = o.pl.querySelector('.b-snd'); b.setAttribute('aria-pressed', 'false'); b.querySelector('span').textContent = 'Sound off'; } });
+      v.muted = !on; snd.setAttribute('aria-pressed', on ? 'true' : 'false'); snd.querySelector('span').textContent = on ? 'Sound on' : 'Sound off';
+      if (on) { if (!v.getAttribute('src')) v.src = list[P.i].s; P.userPaused = false; safePlay(v); }
+    });
+    pl.querySelector('.b-fs').addEventListener('click', function(){
+      try { if (v.requestFullscreen) v.requestFullscreen().catch(function(){}); else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen(); } catch (err) {}
+    });
+    v.addEventListener('timeupdate', function(){ if (v.duration) { bar.style.width = (100 * v.currentTime / v.duration) + '%'; ct.textContent = fmt(v.currentTime) + ' / ' + list[P.i].dur; } });
+    v.addEventListener('ended', function(){ if (list.length > 1) load(P.i + 1, P.visible && autoplay); else pl.classList.add('paused'); });
+    v.addEventListener('play', function(){ pl.classList.remove('paused'); });
+    v.addEventListener('pause', function(){ pl.classList.add('paused'); });
+    pl.classList.add('paused');
+  });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var P = players.filter(function(p){ return p.v === en.target; })[0]; if (!P) return;
+        P.visible = en.isIntersecting;
+        if (en.isIntersecting) {
+          if (!P.v.getAttribute('src')) P.v.src = P.v.dataset.src;
+          if (autoplay && !P.userPaused) safePlay(P.v);
+        } else if (!P.v.paused) P.v.pause();
+      });
+    }, {threshold: 0.45});
+    players.forEach(function(P){ io.observe(P.v); });
+  } else players.forEach(function(P){ P.v.src = P.v.dataset.src; });
+
+  // the hero toggle switches autoplay on and off for the whole page
+  var tg = document.getElementById('motionToggle');
+  tg.setAttribute('aria-pressed', autoplay ? 'true' : 'false');
+  tg.addEventListener('click', function(){
+    autoplay = !autoplay; tg.setAttribute('aria-pressed', autoplay ? 'true' : 'false');
+    setAuto(autoplay);
+    players.forEach(function(P){ if (!autoplay) { if (P.v.muted) P.v.pause(); } else if (P.visible && !P.userPaused) safePlay(P.v); });
+  });
+
+  // QR codes to LinkedIn
+  try {
+    ['qrHero', 'qrContact'].forEach(function(id){
+      var el = document.getElementById(id); if (!el || !window.QRCode) return;
+      new QRCode(el, {text: 'https://www.linkedin.com/in/nitesh-kumar-1aa346381/', width: 192, height: 192, colorDark: '#0D0E11', colorLight: '#FFFFFF', correctLevel: QRCode.CorrectLevel.M});
+    });
+  } catch (err) {}
+
+  // nav: mark the section in view
+  var links = document.querySelectorAll('.nav a'), map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return; var a = map[en.target.id]; if (!a) return;
+        links.forEach(function(l){ l.removeAttribute('aria-current'); }); a.setAttribute('aria-current', 'true');
+      });
+    }, {rootMargin: '-45% 0px -50% 0px'});
+    document.querySelectorAll('.hero, .sec').forEach(function(s){ so.observe(s); });
+  }
+
+  var copy = document.getElementById('copy'), mail = document.getElementById('mail');
+  copy.addEventListener('click', function(){
+    function sel(){ var r = document.createRange(); r.selectNodeContents(mail); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = 'Selected, press ⌘C'; }
+    try { navigator.clipboard.writeText(mail.textContent).then(function(){ copy.textContent = 'Copied'; setTimeout(function(){ copy.textContent = 'Copy email'; }, 1800); }, sel); } catch (err) { sel(); }
+  });
+})();
+</script>
